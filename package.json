@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/dejan-babic/DTL-BOOK-SEARCH/issues"
   },
-  "homepage": "https://github.com/dejan-babic/DTL-BOOK-SEARCH"
+  "homepage": "https://github.com/dejan-babic/DTL-BOOK-SEARCH",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "google-books-search": "^0.1.3"
+  }
 }
