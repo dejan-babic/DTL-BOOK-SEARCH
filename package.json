@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dejan-babic/DTL-BOOK-SEARCH.git"
+    "url": "https://github.com/dejan-babic/dtl-book-search.git"
   },
   "author": "Dejan Babic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dejan-babic/DTL-BOOK-SEARCH/issues"
+    "url": "https://github.com/dejan-babic/dtl-book-search/issues"
   },
-  "homepage": "https://github.com/dejan-babic/DTL-BOOK-SEARCH",
+  "homepage": "https://github.com/dejan-babic/dtl-book-search",
   "dependencies": {
     "body-parser": "^1.12.4",
     "express": "^4.12.4",

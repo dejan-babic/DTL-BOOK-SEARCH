@@ -4,21 +4,22 @@
 // =============================================================================
 
 // call the packages we need
-var express    = require('express');        // call express
-var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+var express     = require('express');        // call express
+var app         = express();                 // define our app using express
+var bodyParser  = require('body-parser');
 var booksSearch = require('google-books-search');
 
 var options = {
 	key: "AIzaSyBVGJBQhRpHp2yO15Jwju73agPBJnuU9kE",
-	field: 'title',
+	field: '',
 	offset: 0,
 	limit: 10,
 	type: 'books',
 	order: 'relevance',
-	lang: 'en'
+	lang: ''
 };
-var query = "programing";
+
+var query = "";
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -33,12 +34,35 @@ var router = express.Router();              // get an instance of the express Ro
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api/v1)
 router.get('/', function(req, res) {
-	//console.log(req)
-	//console.log(res)
+	res.json({ message: 'Welcome to dtl book search api!' });
+});
+
+// google search route
+router.post('/search', function(req, res) {
+
+	if (!req.body || !req.body.query) {
+		res.json({message: 'You must send the query for the search'});
+		return;	
+	}
+
+	if (req.body.field) {
+		options.field = req.body.field;
+	}
+
+	if (req.body.offset) {
+		options.offset = req.body.offset;
+	}
+
+	query = req.body.query;
+
 	booksSearch.search(query, options, function(error, results) {
-		console.log(error);
-		console.log(results);
-//		res.json({ message: 'hooray! welcome to our api!' });
+
+		if (error) {
+			console.log(error);
+			res.json({message: 'The service is not reachable'});
+			return;
+		}
+
 		res.json(results);
 
 	});

@@ -1,2 +1,2 @@
-# DTL-BOOK-SEARCH
+# dtl-book-search
 Search books through Google Books API
